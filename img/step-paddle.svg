@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="420" viewBox="0 0 700 420" role="img" aria-label="Paddle control illustration">
+  <rect width="700" height="420" fill="#f6f7fb"/>
+  <rect x="40" y="30" width="620" height="360" rx="22" fill="#fff" stroke="#d7d9e3" stroke-width="5"/>
+  <rect x="250" y="310" width="200" height="26" rx="13" fill="#4dabf7"/>
+  <path d="M210 323 L250 323" stroke="#111" stroke-width="4"/>
+  <path d="M450 323 L490 323" stroke="#111" stroke-width="4"/>
+  <path d="M210 323 L235 310 L235 336 Z" fill="#111"/>
+  <path d="M490 323 L465 310 L465 336 Z" fill="#111"/>
+  <text x="70" y="90" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#111">Paddle follows the mouse (or arrow keys)</text>
+  <text x="70" y="125" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#555">Tip: clamp the paddle so it never goes off-screen.</text>
+</svg>

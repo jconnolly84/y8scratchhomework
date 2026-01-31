@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Year 8 Homework: Scratch Breakout Challenge</title>
+  <meta name="description" content="Year 8 Scratch homework: build a Breakout/Arkanoid-style game. Follow the steps, add features, then submit your Scratch share link for marking." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <div class="brand">
+      <span class="brand__dot" aria-hidden="true"></span>
+      <span class="brand__title">KS3 Computing</span>
+      <span class="brand__tag">Scratch Challenge</span>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" type="button">☰</button>
+    <nav class="topnav" id="topnav">
+      <a href="#overview">Overview</a>
+      <a href="#example">Example</a>
+      <a href="#build">Build steps</a>
+      <a href="#features">Feature ideas</a>
+      <a href="#support">Support</a>
+      <a class="cta" href="#submit">Submit link</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="overview" class="hero card">
+    <div class="hero__text">
+      <h1>Year 8 Homework: Scratch Breakout Challenge</h1>
+      <p class="lede">
+        Your task is to build a <strong>Breakout / Arkanoid-style</strong> game in <strong>Scratch</strong>.
+        You’ll create a paddle, a bouncing ball, and a wall of bricks to smash.
+      </p>
+
+      <div class="btn-row" style="margin:14px 0 10px 0;">
+        <a class="btn" href="https://scratch.mit.edu/projects/editor/" target="_blank" rel="noopener">🧩 Open Scratch</a>
+        <a class="btn" href="downloads/scratch_slides.pdf" target="_blank" rel="noopener">📘 Guide</a>
+        <a class="btn" href="https://jconnolly84.github.io/garanoid/" target="_blank" rel="noopener">🎮 Example Game</a>
+      </div>
+
+      <div class="callout">
+        <h3 style="margin-top:0;">Deadlines</h3>
+        <ul style="margin:0; padding-left:18px;">
+          <li><strong>Interim check:</strong> last week of this half term (bring it in even if unfinished).</li>
+          <li><strong>Final check:</strong> week 4 of next half term.</li>
+        </ul>
+        <p class="muted" style="margin:10px 0 0 0;">By the final check, sanctions may be used for non-compliance (school policy).</p>
+      </div>
+
+      <ul class="checklist">
+        <li><strong>You must have a Scratch account</strong> so you can click <strong>Share</strong>.</li>
+        <li>Build the core game first, then add features from the ideas list.</li>
+        <li>Submit your <strong>Scratch project link</strong> for marking (one click to play).</li>
+      </ul>
+
+      <p class="note">
+        <strong>Success tip:</strong> Make the basic version work first (paddle + ball + bricks). Then add extras.
+      </p>
+
+         </div>
+
+    <div class="hero__img">
+      <img src="img/breakout-hero.svg" alt="Breakout style game: paddle, ball and bricks" />
+    </div>
+  </section>
+
+  
+  <section id="build" class="card">
+    <div class="card__header">
+      <h2>Build steps</h2>
+      <p class="subhead">Follow these steps in order. Do not skip ahead — each step depends on the last.</p>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <h3>Step 1 — Set up your project</h3>
+        <ol>
+          <li>Create a new Scratch project and rename it: <strong>Y8 Breakout – Your Name</strong>.</li>
+          <li>Choose a simple background.</li>
+          <li>Create sprites: <strong>Paddle</strong>, <strong>Ball</strong>, <strong>Brick</strong> (or make a brick costume).</li>
+        </ol>
+
+        <div class="callout">
+          <h4>Tip</h4>
+          <p style="margin:0;">Keep costumes simple at first. Fancy graphics can come later.</p>
+        </div>
+
+        <h3 style="margin-top:18px;">Step 2 — Paddle movement</h3>
+        <ul>
+          <li>Use <strong>forever</strong> to keep checking input.</li>
+          <li>If left key pressed → change x by negative amount.</li>
+          <li>If right key pressed → change x by positive amount.</li>
+          <li>Add boundaries so it can’t leave the screen.</li>
+        </ul>
+      </div>
+
+      <figure class="figure">
+        <img src="img/step-paddle.svg" alt="Paddle movement concept" />
+        <figcaption>Paddle: smooth movement + boundary checks.</figcaption>
+      </figure>
+    </div>
+
+    <div class="grid-2" style="margin-top:16px;">
+      <figure class="figure">
+        <img src="img/step-ball.svg" alt="Ball movement and bounce concept" />
+        <figcaption>Ball: direction + bounce off walls and paddle.</figcaption>
+      </figure>
+
+      <div>
+        <h3>Step 3 — Ball movement + bouncing</h3>
+        <ul>
+          <li>Start ball on the paddle (optional) then launch with space.</li>
+          <li>Use a direction variable or <strong>set direction</strong>.</li>
+          <li>Move a small amount each tick (e.g. <strong>move 6 steps</strong>).</li>
+          <li>Use <strong>if on edge, bounce</strong>.</li>
+          <li>When touching paddle → bounce (and optionally change angle).</li>
+        </ul>
+
+        <div class="callout">
+          <h4>Quick check</h4>
+          <p style="margin:0;"><strong>Q:</strong> Why is moving 4–8 steps smoother than moving 20 steps?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:16px;">
+      <div>
+        <h3>Step 4 — Bricks</h3>
+        <ul>
+          <li>Create a brick sprite and make it look like a rectangle.</li>
+          <li>Use <strong>clones</strong> to generate a grid of bricks.</li>
+          <li>Make rows/columns using nested loops (repeat inside repeat).</li>
+        </ul>
+
+        <h3 style="margin-top:18px;">Step 5 — Brick collisions</h3>
+        <ul>
+          <li>If ball touches a brick clone → delete that clone.</li>
+          <li>Make the ball bounce when it hits a brick (reverse direction).</li>
+          <li>Add score +1 per brick.</li>
+        </ul>
+      </div>
+
+      <figure class="figure">
+        <img src="img/step-bricks.svg" alt="Bricks as clones concept" />
+        <figcaption>Bricks: use clones to build a wall quickly.</figcaption>
+      </figure>
+    </div>
+
+    <div class="grid-2" style="margin-top:16px;">
+      <figure class="figure">
+        <img src="img/step-gameover.svg" alt="Lives and game over concept" />
+        <figcaption>Lives + reset ball, then game over / win screen.</figcaption>
+      </figure>
+
+      <div>
+        <h3>Step 6 — Lives, reset, win/lose</h3>
+        <ul>
+          <li>Create variables: <strong>score</strong>, <strong>lives</strong>.</li>
+          <li>If ball touches bottom edge → lose a life and reset ball.</li>
+          <li>If lives reaches 0 → <strong>Game Over</strong>.</li>
+          <li>If all bricks are gone → <strong>You Win</strong>.</li>
+        </ul>
+
+        <div class="callout">
+          <h4>Minimum viable game (must have)</h4>
+          <ul style="margin:0; padding-left:18px;">
+            <li>Paddle controlled by keys or mouse</li>
+            <li>Ball bounces off walls + paddle</li>
+            <li>Bricks disappear when hit</li>
+            <li>Score + win/lose condition</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="card">
+    <div class="card__header">
+      <h2>Feature ideas</h2>
+      <p class="subhead">Once your minimum viable game works, add features to improve it. Pick from the tiers below.</p>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <h3>Core (do these first)</h3>
+        <ul>
+          <li><strong>Start screen</strong> with instructions (press space to start).</li>
+          <li><strong>Smoother bounce</strong>: change angle depending on where it hits the paddle.</li>
+          <li><strong>Sound effects</strong>: wall bounce, brick break, lose life.</li>
+          <li><strong>Brick varieties</strong>: different colours = different points.</li>
+        </ul>
+
+        <h3 style="margin-top:18px;">Secure (good challenge)</h3>
+        <ul>
+          <li><strong>Levels</strong>: new brick layout each level.</li>
+          <li><strong>Increasing difficulty</strong>: ball speed increases each level.</li>
+          <li><strong>Lives UI</strong>: show hearts or icons rather than a number.</li>
+          <li><strong>Pause</strong>: press P to pause/unpause.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Stretch (for top scores)</h3>
+        <ul>
+          <li><strong>Power-ups</strong>: wider paddle, multi-ball, slow motion.</li>
+          <li><strong>Brick durability</strong>: bricks take 2–3 hits (use a variable per clone).</li>
+          <li><strong>Combo scoring</strong>: bonus points for fast brick streaks.</li>
+          <li><strong>Boss level</strong>: moving bricks or a moving “target” to hit.</li>
+          <li><strong>High score</strong>: store best score (Scratch cloud var optional).</li>
+        </ul>
+
+        <div class="callout">
+          <h4>How to add a feature without breaking everything</h4>
+          <ol style="margin:0; padding-left:18px;">
+            <li>Duplicate your project first (File → Save as a copy).</li>
+            <li>Add one small change.</li>
+            <li>Test it for 60 seconds.</li>
+            <li>If it breaks, undo and try a simpler version.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="support" class="card">
+    <div class="card__header">
+      <h2>Support (tutorials + troubleshooting)</h2>
+      <p class="subhead">Use these if you’re stuck. The goal is to learn how to build the game, not just to follow blindly.</p>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <h3>Tutorial (recommended for support)</h3>
+        <p>
+          If you find it hard to start, follow this Breakout tutorial and pause it often.
+          Build alongside it, then come back to this page to add your own features.
+        </p>
+
+        <div class="btn-row">
+          <a class="btn slides-btn" href="downloads/breakout-planning-sheet.txt" target="_blank" rel="noopener">📄 Open planning sheet</a>
+          <a class="btn btn--ghost" href="downloads/marking-rubric.txt" target="_blank" rel="noopener">✅ Marking guide</a>
+        </div>
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/ppbGUruKZq8"
+            title="Scratch Breakout tutorial"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+
+        <p class="muted"><strong>Less able route:</strong> tutorial first, then add one feature from Core.</p>
+      </div>
+
+      <div>
+        <h3>Common problems (quick fixes)</h3>
+        <ul>
+          <li><strong>Ball gets stuck in paddle:</strong> move the ball out slightly before bouncing.</li>
+          <li><strong>Ball goes through bricks:</strong> reduce speed (steps) or check collisions more often.</li>
+          <li><strong>Paddle leaves screen:</strong> clamp x position (min/max).</li>
+          <li><strong>Bricks won’t delete:</strong> make sure you’re deleting the brick clone, not the ball.</li>
+          <li><strong>Game won’t embed:</strong> you must click <strong>Share</strong> in Scratch.</li>
+        </ul>
+
+        <div class="callout">
+          <h4>Teacher help</h4>
+          <p style="margin:0;">If you are stuck for more than 10 minutes, bring it to the next lesson and show your teacher.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="submit" class="card">
+    <div class="card__header">
+      <h2>Submit your Scratch link</h2>
+      <p class="subhead">You must click <strong>Share</strong> in Scratch, then paste your project link below.</p>
+    </div>
+
+    <form id="submitForm" class="quiz" autocomplete="off">
+      <div class="quiz__meta">
+        <div>
+          <label for="studentClass"><strong>Class</strong></label>
+          <select id="studentClass" required>
+            <option value="">Select your class…</option>
+            <option>8A1</option><option>8A2</option><option>8A3</option><option>8A4</option>
+            <option>8B1</option><option>8B2</option><option>8B3</option><option>8B4</option>
+          </select>
+        </div>
+        <div>
+          <label for="studentName"><strong>Full name</strong></label>
+          <input id="studentName" type="text" placeholder="e.g. Jamie Smith" required />
+        </div>
+        <div>
+          <label for="scratchUser"><strong>Scratch username</strong></label>
+          <input id="scratchUser" type="text" placeholder="e.g. CoolCoder8" required />
+        </div>
+        <div>
+          <label for="projectLink"><strong>Scratch project link</strong></label>
+          <input id="projectLink" type="url" placeholder="https://scratch.mit.edu/projects/123456789/" required />
+          <p class="fineprint" style="margin-top:6px;">Tip: open your shared project and copy the address from the browser bar.</p>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:14px;">
+        <h3 style="margin-top:0;">Self-check (tick what you have)</h3>
+        <div class="checks">
+          <label><input type="checkbox" name="feat" value="paddle" /> Paddle controls</label>
+          <label><input type="checkbox" name="feat" value="bounce" /> Ball bounces (walls + paddle)</label>
+          <label><input type="checkbox" name="feat" value="bricks" /> Bricks disappear when hit</label>
+          <label><input type="checkbox" name="feat" value="score" /> Score increases</label>
+          <label><input type="checkbox" name="feat" value="lives" /> Lives + reset ball</label>
+          <label><input type="checkbox" name="feat" value="winlose" /> Win / Game Over</label>
+          <label><input type="checkbox" name="feat" value="sound" /> Sound effects</label>
+          <label><input type="checkbox" name="feat" value="extras" /> Extra feature(s)</label>
+        </div>
+      </div>
+
+      <div class="btn-row" style="margin-top:14px;">
+        <button class="btn" id="submitBtn" type="submit">Submit link</button>
+        <button class="btn btn--ghost" id="previewBtn" type="button">Preview my game</button>
+        <a class="btn btn--ghost" href="teacher.html">Teacher dashboard</a>
+      </div>
+
+      <p id="status" class="muted" style="margin-top:10px;"></p>
+
+      <div id="previewWrap" class="video" style="display:none; margin-top:14px;">
+        <iframe id="previewFrame" src="" title="Scratch preview" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <div id="results" class="card" style="margin-top:14px;" hidden></div>
+    </form>
+
+    <p class="muted" style="margin-top:12px;">
+      <strong>Important:</strong> If you do not click <strong>Share</strong>, your link will not work and it may be marked as not submitted.
+    </p>
+  </section>
+
+  <footer class="footer">
+    <p>
+      KS3 Computing — Year 8 Scratch Breakout Challenge.
+      <span class="muted">Build the core first, then improve.</span>
+    </p>
+  </footer>
+</main>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+  // Firebase (compat) — synchronous init so window.db exists before script.js runs
+  const firebaseConfig = {
+  "apiKey": "AIzaSyB_6oHLlj7qt28utAb72pAGiNH-SEgRg3g",
+  "authDomain": "y8-scratch-homework.firebaseapp.com",
+  "projectId": "y8-scratch-homework",
+  "storageBucket": "y8-scratch-homework.firebasestorage.app",
+  "messagingSenderId": "613471772596",
+  "appId": "1:613471772596:web:203a71fbd5ea33fff7dce1"
+};
+  firebase.initializeApp(firebaseConfig);
+  window.db = firebase.firestore();
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

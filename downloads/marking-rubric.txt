@@ -1,0 +1,25 @@
+Year 8 Scratch Breakout (Arkanoid) – Marking guide (student-friendly)
+
+You are aiming to include Core features first, then add Secure and Stretch.
+
+CORE (expected)
+- Paddle moves smoothly and stays on screen
+- Ball moves and bounces correctly
+- Bricks disappear when hit
+- Score works
+- Lose a life when the ball falls off the bottom
+- Clear win/lose message
+
+SECURE (strong)
+- Start screen with instructions
+- Reset/restart button or green-flag restart
+- Different brick rows worth different points OR different colours
+- Sound effects (bounce / brick break / life lost)
+- Lives displayed on screen
+
+STRETCH (top end)
+- Levels (new brick layout, faster ball, etc.)
+- Power-ups (wider paddle, multi-ball, slow-motion)
+- Combo / multiplier scoring
+- Simple high score system (stored while the project is open)
+- Polished art/theme and readable UI

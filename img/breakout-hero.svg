@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" role="img" aria-label="Breakout game illustration">
+  <rect width="900" height="600" fill="#f6f7fb"/>
+  <rect x="70" y="60" width="760" height="480" rx="28" fill="#ffffff" stroke="#d7d9e3" stroke-width="6"/>
+
+  <!-- bricks -->
+  <g transform="translate(150 115)">
+    <g fill="#ffd166" stroke="#e0b44b" stroke-width="3">
+      <rect x="0" y="0" width="110" height="30" rx="8"/>
+      <rect x="125" y="0" width="110" height="30" rx="8"/>
+      <rect x="250" y="0" width="110" height="30" rx="8"/>
+      <rect x="375" y="0" width="110" height="30" rx="8"/>
+      <rect x="500" y="0" width="110" height="30" rx="8"/>
+    </g>
+    <g transform="translate(0 42)" fill="#a8dadc" stroke="#7ab9bb" stroke-width="3">
+      <rect x="0" y="0" width="110" height="30" rx="8"/>
+      <rect x="125" y="0" width="110" height="30" rx="8"/>
+      <rect x="250" y="0" width="110" height="30" rx="8"/>
+      <rect x="375" y="0" width="110" height="30" rx="8"/>
+      <rect x="500" y="0" width="110" height="30" rx="8"/>
+    </g>
+    <g transform="translate(0 84)" fill="#cdb4db" stroke="#b08bc7" stroke-width="3">
+      <rect x="0" y="0" width="110" height="30" rx="8"/>
+      <rect x="125" y="0" width="110" height="30" rx="8"/>
+      <rect x="250" y="0" width="110" height="30" rx="8"/>
+      <rect x="375" y="0" width="110" height="30" rx="8"/>
+      <rect x="500" y="0" width="110" height="30" rx="8"/>
+    </g>
+  </g>
+
+  <!-- ball -->
+  <circle cx="520" cy="330" r="16" fill="#ef476f"/>
+
+  <!-- paddle -->
+  <rect x="370" y="470" width="200" height="20" rx="10" fill="#118ab2"/>
+
+  <!-- caption -->
+  <g font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" fill="#2a2f3a">
+    <text x="120" y="520" font-size="28" font-weight="700">Breakout Challenge</text>
+    <text x="120" y="552" font-size="18">Paddle + ball + bricks + score + lives</text>
+  </g>
+</svg>

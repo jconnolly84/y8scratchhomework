@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="420" viewBox="0 0 700 420" role="img" aria-label="Start, win and game over screens">
+  <rect width="700" height="420" fill="#f6f7fb"/>
+  <rect x="40" y="30" width="620" height="360" rx="22" fill="#fff" stroke="#d7d9e3" stroke-width="5"/>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="90" y="110" font-size="28" fill="#111">START SCREEN</text>
+    <text x="90" y="140" font-size="16" fill="#555">Press SPACE to begin</text>
+
+    <text x="90" y="220" font-size="28" fill="#111">WIN!</text>
+    <text x="90" y="250" font-size="16" fill="#555">All bricks cleared</text>
+
+    <text x="90" y="320" font-size="28" fill="#111">GAME OVER</text>
+    <text x="90" y="350" font-size="16" fill="#555">No lives left</text>
+  </g>
+</svg>

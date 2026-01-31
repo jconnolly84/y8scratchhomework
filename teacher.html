@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teacher Dashboard: Scratch Homework Submissions</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <strong>Teacher Dashboard</strong>
+        <span class="muted" style="margin-left:10px;">Y8 Scratch Breakout submissions</span>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" type="button">☰</button>
+      <nav class="topnav" id="topnav">
+        <a href="index.html">Student page</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" style="margin-top:18px;">
+      <h2>Sign in (optional)</h2>
+      <p class="muted">
+        This dashboard can read from <strong>Firestore</strong> if you configure Firebase below.
+        If you haven't set Firebase up yet, it will still show <strong>local demo submissions</strong> made on this browser.
+      </p>
+
+      <div class="form-grid">
+        <div>
+          <label for="teacherEmail"><strong>Email</strong></label>
+          <input id="teacherEmail" type="email" placeholder="you@school.org" autocomplete="username" />
+        </div>
+        <div>
+          <label for="teacherPassword"><strong>Password</strong></label>
+          <input id="teacherPassword" type="password" placeholder="••••••••" autocomplete="current-password" />
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn" id="btnTeacherLogin" type="button">Sign in</button>
+        <button class="btn btn--ghost" id="btnTeacherLogout" type="button">Sign out</button>
+      </div>
+
+      <p id="teacherAuthMsg" class="muted"></p>
+    </section>
+
+    <section class="card" id="teacher-dashboard" style="margin-top:18px;">
+      <h2>Submissions</h2>
+      <p class="muted">Filter by class and name. Preview projects in an embedded player. Export to CSV for marksheets.</p>
+
+      <div class="filters">
+        <div>
+          <label class="muted"><strong>Class</strong></label>
+          <select id="filterClass">
+            <option value="">All classes</option>
+            <option>8A1</option><option>8A2</option><option>8A3</option>
+            <option>8B1</option><option>8B2</option><option>8B3</option><option>8B4</option>
+          </select>
+        </div>
+
+        <div style="flex:1;">
+          <label class="muted"><strong>Name contains</strong></label>
+          <input id="filterName" type="text" placeholder="e.g. Smith" />
+        </div>
+
+        <div class="filters__actions">
+          <button class="btn" id="refreshBtn" type="button">Refresh</button>
+        </div>
+      </div>
+
+      <div class="btn-row" style="margin-top:10px;">
+        <button class="btn" id="exportBtn" type="button">Export CSV</button>
+        <div id="dataStatus" class="muted" style="align-self:center;"></div>
+      </div>
+
+      <div style="overflow:auto; margin-top:14px;">
+        <table id="attemptsTable" class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Class</th>
+              <th>Name</th>
+              <th>Scratch user</th>
+              <th>Project</th>
+              <th>Stage</th>
+              <th>Features (self)</th>
+              <th style="text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <p class="muted" style="margin-top:12px;">
+        Tip: If you want this to work across devices, configure Firebase and write submissions to Firestore.
+      </p>
+    </section>
+  </main>
+
+  <!-- Preview modal -->
+  <dialog id="previewDialog" class="modal">
+    <div class="modal__head">
+      <strong id="previewTitle">Preview</strong>
+      <button class="btn btn--sm" id="previewClose" type="button">Close</button>
+    </div>
+    <div class="modal__body">
+      <iframe id="previewFrame" title="Scratch preview" loading="lazy"></iframe>
+      <p class="muted" id="previewHint" style="margin-top:10px;"></p>
+    </div>
+  </dialog>
+
+  <style>
+    .form-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin: 12px 0;
+    }
+    .form-grid input{
+      width:100%;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      font-size:16px;
+    }
+    .filters{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:flex-end;
+    }
+    .filters select, .filters input{
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      font-size:16px;
+    }
+    .filters__actions{ margin-left:auto; }
+    .table{ width:100%; border-collapse:separate; border-spacing:0; }
+    .table th, .table td{ padding:12px 14px; border-bottom:1px solid var(--line); text-align:left; white-space:nowrap; }
+    .table thead th{ background:#f6f7fb; position:sticky; top:0; z-index:1; }
+
+    dialog.modal{
+      width:min(1000px, 96vw);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:0;
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+    }
+    dialog.modal::backdrop{ background: rgba(0,0,0,.45); }
+    .modal__head{ display:flex; justify-content:space-between; align-items:center; padding:14px 14px; border-bottom:1px solid var(--line); }
+    .modal__body{ padding:14px; }
+    .modal__body iframe{ width:100%; aspect-ratio: 4/3; border:1px solid var(--line); border-radius:14px; background:#fff; }
+
+    @media (max-width: 700px){
+      .form-grid{ grid-template-columns: 1fr; }
+      .filters__actions{ margin-left:0; }
+    }
+  </style>
+
+  <!-- Firebase (compat) — OPTIONAL. Replace the config below with your project details if you want Firestore + teacher auth. -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+  <script>
+    // If you don't want Firebase yet, comment this block out.
+    // Initialise Firebase for teacher dashboard
+    const firebaseConfig = {
+  "apiKey": "AIzaSyB_6oHLlj7qt28utAb72pAGiNH-SEgRg3g",
+  "authDomain": "y8-scratch-homework.firebaseapp.com",
+  "projectId": "y8-scratch-homework",
+  "storageBucket": "y8-scratch-homework.firebasestorage.app",
+  "messagingSenderId": "613471772596",
+  "appId": "1:613471772596:web:203a71fbd5ea33fff7dce1"
+};
+
+    try{
+      // Only initialise if the config looks real
+      if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "REPLACE_ME"){
+        firebase.initializeApp(firebaseConfig);
+        window.auth = firebase.auth();
+        window.db = firebase.firestore();
+      }
+    }catch(e){
+      console.warn("Firebase init skipped:", e);
+    }
+  </script>
+
+  <script src="teacher.js"></script>
+</body>
+</html>

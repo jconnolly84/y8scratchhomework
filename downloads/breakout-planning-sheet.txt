@@ -1,0 +1,42 @@
+Year 8 Scratch Breakout Planning Sheet
+
+1) Game name:
+
+2) Controls (choose one):
+   - Mouse
+   - Arrow keys
+   - Both
+
+3) Core features (tick when done):
+   [ ] Paddle moves left/right and stays on screen
+   [ ] Ball moves and bounces off walls
+   [ ] Ball bounces off paddle
+   [ ] Bricks disappear when hit
+   [ ] Score increases when bricks are hit
+   [ ] Lives decrease when ball falls below paddle
+   [ ] Win screen (all bricks cleared)
+   [ ] Game over screen (no lives left)
+
+4) Secure features (tick when done):
+   [ ] Different brick rows worth different points
+   [ ] Level 2 with a new layout (or faster ball)
+   [ ] Sound effects for hit / brick / lose life
+   [ ] Pause button
+
+5) Stretch ideas (pick one or more):
+   - Power-ups (wider paddle, multi-ball, slow motion)
+   - Aim control (ball angle changes depending on where it hits the paddle)
+   - High score table (within Scratch)
+   - Animated background / theme
+   - Boss brick that takes 3 hits
+
+6) Testing checklist:
+   - Does the green flag ALWAYS reset the game?
+   - Can you lose a life and keep playing?
+   - Can you win?
+   - Do sprites ever get stuck off-screen?
+
+7) Submission:
+   - Scratch username:
+   - Project link (must be shared):
+

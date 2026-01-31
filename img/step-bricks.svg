@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="420" viewBox="0 0 700 420" role="img" aria-label="Bricks and collisions illustration">
+  <rect width="700" height="420" fill="#f6f7fb"/>
+  <rect x="40" y="30" width="620" height="360" rx="22" fill="#fff" stroke="#d7d9e3" stroke-width="5"/>
+
+  <!-- bricks -->
+  <g transform="translate(110 70)">
+    <g fill="#ffd166">
+      <rect x="0" y="0" width="92" height="26" rx="8"/>
+      <rect x="110" y="0" width="92" height="26" rx="8"/>
+      <rect x="220" y="0" width="92" height="26" rx="8"/>
+      <rect x="330" y="0" width="92" height="26" rx="8"/>
+      <rect x="440" y="0" width="92" height="26" rx="8"/>
+    </g>
+    <g fill="#74c69d">
+      <rect x="0" y="40" width="92" height="26" rx="8"/>
+      <rect x="110" y="40" width="92" height="26" rx="8"/>
+      <rect x="220" y="40" width="92" height="26" rx="8"/>
+      <rect x="330" y="40" width="92" height="26" rx="8"/>
+      <rect x="440" y="40" width="92" height="26" rx="8"/>
+    </g>
+  </g>
+
+  <circle cx="350" cy="170" r="16" fill="#ff6b6b"/>
+  <path d="M350 170 L385 135" stroke="#111" stroke-width="4"/>
+  <path d="M380 128 L399 132 L389 150 Z" fill="#111"/>
+
+  <text x="70" y="320" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#111">When the ball touches a brick: delete it + bounce</text>
+  <text x="70" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#555">Tip: make each brick a clone so you can have lots of them.</text>
+</svg>
